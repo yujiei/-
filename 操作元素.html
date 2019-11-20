@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <input type="text" id="txt">
+        <div><a href="#">请点击这里</a></div>
+        <p>123</p>
+        <h1>456</h1>
+</body>
+</html>
+<script src="../03 - 代码/jquery/jquery-2.2.2.js"></script>
+<script>
+// $('#txt').on('blur',function(){
+//     console.log(this.value);
+//     console.log($(this).val());
+// })
+// $('#txt').on('focus',function(){
+//     $(this).val('nihaoaosadhashd');
+// })
+$('div').on('click',function(){
+    // console.log($(this).html());
+//    console.log($(this).text());
+console.log($(this).text('我是你爸爸'));
+console.log($(this).html('我是你爸爸'));
+})
+
+$('p').on('click',function(){
+    $(this).html('<a href="#">小明和小刚</a>');
+
+})
+$('h1').on('click',function(){
+    $(this).text('<a href="#">小米和小刚</a>');
+})
+</script>   
