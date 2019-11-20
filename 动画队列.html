@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            .box {
+              width: 100px;
+              height: 100px;
+              background-color: green;
+              position: absolute;
+            }
+          </style>
+</head>
+<body>
+        <input type="button" value="开始" id="btn1">
+        <input type="button" value="停止" id="btn2">
+      <div class="box"></div>
+</body>
+</html>
+<script src="../03 - 代码/jquery/jquery-2.2.2.js"></script>
+<script>
+let btn = $('#btn1');
+btn.on('click',function(){
+    $('.box').animate({width:300,height:300},3000);
+})
+$('#btn2').on('click',function(){
+    $('.box').stop(true,false);
+})
+</script>
