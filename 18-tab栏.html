@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .wrapper {
+      width: 1000px;
+      height: 475px;
+      margin: 0 auto;
+      margin-top: 100px;
+    }
+
+    .tab {
+      border: 1px solid #ddd;
+      border-bottom: 0;
+      height: 36px;
+      width: 320px;
+    }
+
+    .tab li {
+      position: relative;
+      float: left;
+      width: 80px;
+      height: 34px;
+      line-height: 34px;
+      text-align: center;
+      cursor: pointer;
+      border-top: 4px solid #fff;
+    }
+
+    .tab span {
+      position: absolute;
+      right: 0;
+      top: 10px;
+      background: #ddd;
+      width: 1px;
+      height: 14px;
+      overflow: hidden;
+    }
+
+    .products {
+      width: 1002px;
+      border: 1px solid #ddd;
+      height: 476px;
+    }
+
+    .products .main {
+      float: left;
+      display: none;
+    }
+
+    .products .main.selected {
+      display: block;
+    }
+
+    .tab li.active {
+      border-color: red;
+      border-bottom: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <ul class="tab">
+      <li class="tab-item active">国际大牌<span>◆</span></li>
+      <li class="tab-item">国妆名牌<span>◆</span></li>
+      <li class="tab-item">清洁用品<span>◆</span></li>
+      <li class="tab-item">男士精品</li>
+    </ul>
+    <div class="products">
+      <div class="main selected">
+        <a href="###"><img src="images/guojidapai.jpg" alt="" /></a>
+      </div>
+      <div class="main">
+        <a href="###"><img src="images/guozhuangmingpin.jpg" alt="" /></a>
+      </div>
+      <div class="main">
+        <a href="###"><img src="images/qingjieyongpin.jpg" alt="" /></a>
+      </div>
+      <div class="main">
+        <a href="###"><img src="images/nanshijingpin.jpg" alt="" /></a>
+      </div>
+    </div>
+  </div>
+
+</body>
+<script src="../jquery src/jquery-2.2.2.js"></script>
+<script>
+  /*
+    效果：
+      1.鼠标移入分类
+        当前分类的顶部变红，其他分类的顶部变成普通
+        当前分类对应的内容，显示，其他分类对应的内容隐藏
+          - 通过类名来改变的样式
+   */
+
+
+  $(function () {
+    // 获取元素，注册鼠标移入事件
+    let items = $('.tab-item');
+    let products = $('.main');
+    items.on('mouseover', function () {
+      // write less do more
+      // 给你自己添加类名，把其他的兄弟元素的类名移除
+      $(this).addClass('active').siblings().removeClass('active');
+      // 把自己对应的产品显示，把其他产品隐藏
+      let index = $(this).index();
+      products.eq(index).show().siblings().hide();
+    })
+  });
+</script>
+
+</html>
