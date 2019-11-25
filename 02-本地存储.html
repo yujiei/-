@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<input type="button" value="存数据" id="save">
+<input type="button" value="取数据" id="get">
+</body>
+<script>
+/*
+  浏览器里面给我们准备了一个地方，让我们可以把数据持久化
+
+    这个技术叫本地存储 localStorage
+
+      学习一套关于该对象的API
+
+      存
+        localStorage.setItem(键,值);
+          注意： 值只能是字符串
+            如果你存的不是字符串，会自动的帮你先转换为字符串，在存储进去
+            如果是复杂类型，存进去的不是我们想要存的 —— 因为它的转换规则不是我们想要的
+            如果是复杂类型，我们在存进去之前，需要自己把复杂类型转换为们想要的字符串 —— JSON格式
+      取
+        localStorage.getItem(键);
+*/
+let btn_save = document.getElementById('save');
+let btn_get = document.getElementById('get');
+/* 点击按钮，把一个数据，存储到本地存储里面 */
+btn_save.onclick = function(){
+  // localStorage.setItem('key','二狗');
+
+  // 演示本地存储只能存字符串
+  localStorage.setItem('age',12);
+  localStorage.setItem('gender',true);
+
+  let person = {
+    name : '三狗子',
+    age : 18,
+    weight : 180
+  }
+  localStorage.setItem('person', JSON.stringify(person))
+}
+
+// 点击按钮，把存储在本地存储里面的数据获取出来
+btn_get.onclick = function(){
+  let name = localStorage.getItem('key');
+  console.log(name);
+  let age = localStorage.getItem('age');
+  console.log(age);
+  let gender = localStorage.getItem('gender');
+  console.log(gender);
+  let person = localStorage.getItem('person');
+  console.log(person);
+}
+</script>
+</html>
