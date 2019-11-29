@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+/*
+  练习：
+    1. 验证手机号码
+    2. 验证邮箱
+    3. 验证日期     yyyy-MM-dd  yyyy-M-d  yyyy-MM-d  yyyy-M-dd
+    4. 验证ip       192.168.75.33   点与点之间都是0~255之间的数字
+ */
+
+/* 写正则表达式也是有步骤的
+  1. 先分析需求是什么
+  2. 根据你所知的该需求的特征，把每个特征列举出来
+  3. 使用正则表达式把每个特征依次写出来即可
+ */
+
+ /* 验证大陆的手机号码 */
+ /*
+  特征：
+    1开头
+    后面跟着10位的数字
+ */
+ var reg = /^[1]\d{10}$/;
+ console.log(reg.test('18635254768'));
+ console.log(reg.test('18635254768f'));
+ // ^(13[0-9]|14[5|7]|15[0|1|2|3|4|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$  一位热心网友提供的
+</script>
+</html>
